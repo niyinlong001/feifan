@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
+
 	<body>
+		<div class="w">
+			<div class="box">
+				<a href="#"><img src="img/1423-400-31.jpg"></a>
+				<a href="#"><img src="img/201603231622547.jpg"></a>
+				<a href="#"><img src="img/201610101628469.jpg"></a>
+				<a href="#"><img src="img/201702081649028.jpg"></a>
+				<a href="#"><img src="img/201702091426261.jpg"></a>
+				<a href="#"><img src="img/201702091427415.jpg"></a>
+				<a href="#"><img src="img/201702101151185.jpg"></a>
+				<a href="#"><img src="img/201702270855564.jpg"></a>
+				<a href="#"><img src="img/201706191500366.jpg"></a>
+				<a href="#"><img src="img/201709071603189.jpg"></a>
+				<div class="points"></div>
+			</div>
+		</div>
+
+		<div class="aside-ad">
+			<img src="img/ad.gif">
+		</div>
+		<div class="" style="height: 2000px;"></div>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+		<script type="text/javascript">
+			/**侧边栏广告条**/ 
+			$(document).scroll(function() {
+				var H = $(window).height();
+				var sTop = $("body").scrollTop();
+				var ah = $(".aside-ad").height();
+				$(".aside-ad").stop(true, true).animate({
+					top: (((H - ah) / 2) + sTop) + "px"
+				}, 1000, "easeOutBack");
+			});
+			
+			/**轮播图**/
+			
+			var box = $(".box");
+			var images = $(".box a");
+			var index = 0;
+			var count = images.length;
+			// 仅第一张显示
+			images.hide().eq(0).show();
+			
+			// 添加点
+			for(var i=0;i<count;i++){
+				$(".points").append("<span></span>");
+			}
+			var points = $(".points span");
+			$(".points").css("margin-left",(-1*20*count)+"px");
+			points.eq(0).addClass("active");
+			
+			setInterval(function(){
+				images.eq(index).fadeOut(200);
+				points.eq(index).removeClass("active");
+				index = (index+1)%count;
+				images.eq(index).fadeIn(200);
+				points.eq(index).addClass("active");
+			},1000);
+			
+		</script>
 	</body>
+
 </html>
