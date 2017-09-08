@@ -39,6 +39,8 @@ ul{
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	z-index: 9999;
+	display: none;
 }
 
 
@@ -63,6 +65,7 @@ ul{
 	position: absolute;
 	bottom: 20px;
 	left: 50%;
+	z-index: 100;
 }
 .box .points span{
 	display: block;
@@ -77,3 +80,64 @@ ul{
 	background-color: red;
 }
 
+
+
+.image-box{
+	width: 270px;
+	height: 180px;
+	border: solid 1px black;
+	position: relative;
+	float: left;
+	margin: 10px;
+	overflow: hidden;
+}
+.image-box img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+.tab{
+	height: 40px;
+	border-bottom: solid 1px black;
+}
+
+.tab ul{}
+.tab ul li{
+	line-height: 40px;
+	margin: 0px 15px;
+	float: left;
+}
+.tab ul li.active{
+	font-weight: bolder;
+	color: red;
+	line-height: 39px;
+	border-bottom: solid 3px red;
+}
+
+.tab .contenxt{
+	height: 300px;
+	width: 100%;
+	position: relative;
+}
+.tab .item{
+	width: inherit;
+	height: 300px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.tab .contenxt .item:nth-child(1){
+	background-color: red;
+	display: block;
+}
+.tab .contenxt .item:nth-child(2){
+	background-color: green;
+}
+.tab .contenxt .item:nth-child(3){
+	background-color: blue;
+}
