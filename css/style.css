@@ -141,3 +141,44 @@ ul{
 .tab .contenxt .item:nth-child(3){
 	background-color: blue;
 }
+
+.category{
+	border: solid 1px red;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	height: 312px;
+	position: relative;
+}
+
+.category ul{
+	width: 120px;
+	background-color: red;
+	border: solid 1px gainsboro;
+}
+
+.category ul li{
+	line-height: 30px;
+	padding: 0 15px;
+	border-top: solid 1px gainsboro;
+}
+.category ul li.active{
+	background-color: grey;
+}
+
+.category .group{
+	width:1080px;
+	height: inherit;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.category .group .item{
+	width: 100%;
+	height: inherit;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
