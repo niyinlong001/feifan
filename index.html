@@ -9,6 +9,22 @@
 
 	<body>
 		
+		<div class="show-register w">
+			<div id="demo">
+				<span class="mr50"><span class="mr10">徐汇校区</span> <span class="mr10">王**</span> <span class="mr10">电话：137****1231</span> <span class="mr10">UI交互设计</span><span class="mr10">&nbsp;8时35分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span> 
+				<span class="mr50"><span class="mr10">浦东校区</span> <span class="mr10">李**</span> <span class="mr10">电话：138****4632</span>&nbsp;<span class="mr10">网络工程</span><span class="mr10">&nbsp;9时13分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span> 
+				<span class="mr50"><span class="mr10">人广校区</span> <span class="mr10">赵**</span> <span class="mr10">电话：131****7965</span> <span class="mr10">服装设计</span><span class="mr10">&nbsp;9时20分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">虹口校区</span> <span class="mr10">宋**</span> <span class="mr10">电话：133****8961</span> <span class="mr10">Web网页前端设计</span><span class="mr10">&nbsp;10时07分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">人广校区</span> <span class="mr10">孙**</span> <span class="mr10">电话：138****8258</span> <span class="mr10">服装制版</span><span class="mr10">&nbsp;10时11分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">徐汇校区</span> <span class="mr10">唐**</span> <span class="mr10">电话：182****3576</span> <span class="mr10">淘宝运营</span><span class="mr10">&nbsp;10时55分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">徐汇校区</span> <span class="mr10">张**</span> <span class="mr10">电话：188****7029</span> <span class="mr10">模具设计</span><span class="mr10">&nbsp;11时08分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">浦东校区</span> <span class="mr10">赵**</span> <span class="mr10">电话：131****0355</span> <span class="mr10">电脑组装组网全科班</span><span class="mr10">&nbsp;11时20分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">普陀校区</span> <span class="mr10">王**</span> <span class="mr10">电话：182****4679</span> <span class="mr10">影视后期处理</span><span class="mr10">&nbsp;11时25分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">人广校区</span> <span class="mr10">靳**</span> <span class="mr10">电话：170****7093</span> <span class="mr10">数码服装设计</span><span class="mr10">&nbsp;11时30分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+				<span class="mr50"><span class="mr10">虹口校区</span> <span class="mr10">汪**</span> <span class="mr10">电话：131****7311</span> <span class="mr10">网页美工设计</span><span class="mr10">&nbsp;11时32分</span> <span class="s10">报名成功<img src="img/xl.jpg" alt=""></span></span>
+			</div>
+		</div>
+		
 		<div class="category w">
 			<ul>
 				<li><a href="#">HTML5</a></li>
@@ -86,32 +102,6 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		<div class="aside-ad">
 			<img src="img/ad.gif">
@@ -212,6 +202,21 @@
 				$(".category ul li").removeClass("active");
 				$(".category .item").hide();
 			});
+			
+			// 分别获取每一个span的宽度，得到总宽度
+			var Regwidth = 0;
+			$(".show-register span.mr50").each(function(){
+				Regwidth+=$(this).width();
+			});
+			$(".show-register").width(Regwidth);
+
+			runing();
+			///  .操作符 一直操作下去  ：链式操作
+			///  自己调用自己  ：递归操作
+			function runing(){
+				$(".show-register #demo").css("left","0px").animate({left:-1*Regwidth+"px"},300000,runing);
+			}
+			
 			
 		</script>
 	</body>

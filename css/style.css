@@ -182,3 +182,21 @@ ul{
 	display: none;
 }
 
+
+
+.show-register{
+	margin: 20px 0px;
+	height:33px;
+	border: 1px red solid;
+	overflow: hidden;
+	position: relative;
+}
+
+.show-register #demo{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.show-register span.mr50{
+	float: left;
+}
