@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--
+			width=device-width   浏览器宽度等于设备宽度
+			initial-scale=1 初始化缩放比例 1
+			minimum-scale=1 最小缩放比例 1
+			maximum-scale=1 最大缩放比例 1
+			user-scalable=no 用户不能进行缩放
+		-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0px;
+				background-color: red;
+			}
+			.box{
+				width: 100%;
+				height: 100px;
+				background-color: red;
+			}
+			
+			
+			@media (max-width: 1200px) {
+				
+				body{
+					background-color: yellow;
+				}
+				
+			}
+			
+			@media (max-width: 750px) {
+				
+				body{
+					background-color: green;
+				}
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

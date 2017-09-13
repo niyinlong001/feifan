@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<audio id="mp3" controls="controls" >
+			<source src="media/小苹果.mp3" type="audio/mp3"></source>
+		</audio>
+		
+		<script type="text/javascript">
+			
+			var mp3 = document.getElementById("mp3");
+			
+			console.log(mp3.duration);//NaN   not a  number   type:number
+			// 播放
+			mp3.play();
+			
+			console.log(mp3.paused);//false
+			
+			setTimeout(function(){
+				// 暂停
+				mp3.pause();
+				// 暂停 状态。
+				console.log(mp3.paused);//true
+				
+				console.log(mp3.duration);// 音乐总时长  单位：s
+				
+				console.log(mp3.currentTime);// 获取当前时长
+				
+			},4000);
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>
