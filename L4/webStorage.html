@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			// 设置数据
+			// 永久存储
+			localStorage.setItem("userName","admin");
+			// 回话存储
+			sessionStorage.setItem("userName","admin_session");
+			
+			// 删除数据
+			//localStorage.removeItem("userName");
+			//sessionStorage.removeItem("userName");
+			
+			// 清空所有的数据
+			localStorage.clear();
+			sessionStorage.clear();
+			
+			// 读取数据
+			console.log(localStorage.getItem("userName"));
+			console.log(sessionStorage.getItem("userName"));
+			
+			localStorage.setItem("userName","admin");
+			localStorage.setItem("userName2","admin2");
+			localStorage.setItem("userName3","admin3");
+			localStorage.setItem("userName4","admin4");
+			localStorage.setItem("userName5","admin5");
+			localStorage.setItem("userName6","admin6");
+			
+			// 遍历
+			for(var i=0;i<localStorage.length;i++){
+				var k = localStorage.key(i);
+				console.log(localStorage.getItem(k));
+			}
+			
+			// 利用storage 存储对象格式的数据
+			var xiaoming = {name:"小明",sex:"boy",age:12};
+			var str = JSON.stringify(xiaoming);
+			localStorage.setItem("Obj",str);
+			console.log(typeof xiaoming);
+			var ObjStr = localStorage.getItem("Obj");
+			console.log(JSON.parse(ObjStr).name);
+			
+			
+		</script>
+		
+	</body>
+</html>

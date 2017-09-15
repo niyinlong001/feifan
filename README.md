@@ -3,8 +3,8 @@
 
 修改文件，测试pull功能  push  commint
 
-* 许燕 https://github.com/hilloaimini/feifan.git	   B+  A   C
-* 王飞 https://github.com/flydreamsoft/feifan.git    A   A  C
+* 许燕 https://github.com/hilloaimini/feifan.git	   B+  A   A
+* 王飞 https://github.com/flydreamsoft/feifan.git    A   A  A
 * 徐德荣 https://github.com/7MrX/feifanedu.git  B-  C  _
 * 刘兰 https://github.com/liulan002/feifan2  C B A
 * 钱雪冰 https://github.com/qianxuebing/-.git A+  A  A

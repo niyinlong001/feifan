@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.right{
+				float: right;
+			}
+			
+			.clear:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.box{
+				width: 300px;
+				height: 500px;
+				border: solid 1px black;
+				margin: 0px auto;
+				position: relative;
+			}
+			.list{
+				margin:0px;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.list li{
+				padding: 0px 0.5em;
+				height: 3em;
+				line-height: 3em;
+				margin: 2px 0px;
+				background-color: red;
+			}
+			.list li span{
+				font-size: 1.5em;
+				padding: 0px 0.5em;
+				/*background-color: green;*/
+			}
+			
+			.shopping-cart{
+				padding: 0px 1em;
+				box-sizing: border-box;
+				height: 3em;
+				line-height: 3em;
+				text-align: right;
+				width: 100%;
+				background-color: orange;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			
+			<ul class="list">
+				<li class="clear" data-id = "0">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "1">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "2">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "3">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "4">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "5">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "6">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+				<li class="clear" data-id = "7">
+					<div class="right">
+						<span class="jian">-</span>
+						<span class="count">0</span>
+						<span class="jia">+</span>
+					</div>
+				</li>
+			</ul>
+			<div class="shopping-cart">
+				一共添加 <span id="count">0</span>件商品
+			</div>
+		</div>
+		<script type="text/javascript">
+			var  arr = [];
+			var list = document.getElementsByClassName("list")[0].children;
+			var total = document.getElementById("count");
+			
+			// 加载已经存在的数据
+			window.onload = function(){
+				var t = 0;
+				for(var i=0;i<list.length;i++){
+					var index = list[i].getAttribute("data-id")-0;
+					
+					var n = localStorage.getItem("id-"+index);
+					if(n==null)
+						n=0;
+					list[i].getElementsByClassName("count")[0].innerText = n;
+					t=t+(n-0);
+				}
+				total.innerText = t;
+			};
+			
+			for(var i = 0 ;i<list.length;i++){
+				// 减
+				list[i].getElementsByClassName("jian")[0].onclick = function(){
+					var index = this.parentElement.parentElement.getAttribute("data-id");
+					
+					var n = this.nextElementSibling.innerText;
+					if(n<=0){return;}
+					this.nextElementSibling.innerText = n-1;
+					
+					var currentCount = localStorage.getItem("id-"+index);
+					console.log(currentCount);
+					if(currentCount>0){
+						localStorage.setItem("id-"+index,currentCount-1);
+					}
+					
+					
+					total.innerText = total.innerText-1;
+				};
+				
+				// 加
+				list[i].getElementsByClassName("jia")[0].onclick = function(){
+					var index = this.parentElement.parentElement.getAttribute("data-id");
+					var n = this.previousElementSibling.innerText;
+					this.previousElementSibling.innerText = n-0+1;
+					
+					var currentCount = localStorage.getItem("id-"+index);
+					if(currentCount!=null){
+						localStorage.setItem("id-"+index,currentCount-0+1);
+					}else{
+						localStorage.setItem("id-"+index,0);
+					}
+					
+					total.innerText = total.innerText-0+1;
+				};
+			}
+		</script>
+		
+	</body>
+</html>
