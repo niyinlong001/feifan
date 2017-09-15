@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 500px;
+				height: 300px;
+				border: solid 1px black;
+			}
+			
+			.trash {
+				height: 300px;
+				width: 200px;
+				float: left;
+				/*background-color: red;*/
+			}
+			
+			.trash img {
+				width: inherit;
+				height: 260px;
+				position: relative;
+				top: 20px;
+			}
+			
+			.article-list {
+				width: 200px;
+				float: right;
+				text-align: center;
+				padding: 10px;
+			}
+			
+			.article-list ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.article-list ul li {
+				line-height: 2em;
+			}
+			
+			.article-list ul li:hover {
+				background-color: darkgrey;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="trash">
+				<img src="img/trash1.png">
+			</div>
+			<div class="article-list">
+				<ul id="article">
+					<li draggable="true">《西游记》</li>
+					<li draggable="true">《红楼梦》</li>
+					<li draggable="true">《三国演义》</li>
+					<li draggable="true">《水浒传》</li>
+					<li draggable="true">《西游记》</li>
+				</ul>
+			</div>
+		</div>
+		<p>已删除文章</p>
+		<ul id="deleted">
+		</ul>
+		<script type="text/javascript">
+			var article = document.getElementById("article").children;
+			var trash = document.getElementsByClassName("trash")[0];
+			var tmpLi = null;
+			for(var i = 0; i < article.length; i++) {
+				article[i].ondragstart = function() {
+					tmpLi = this;
+				}
+			}
+			trash.ondragover = function(e) {
+				e.preventDefault();
+			}
+
+			trash.ondrop = function() {
+				this.children[0].setAttribute("src", "img/trash2.jpg");
+				document.getElementById("deleted").appendChild(tmpLi);
+			}
+		</script>
+
+	</body>
+
+</html>

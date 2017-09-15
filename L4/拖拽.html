@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0px;
+			}
+			.item{
+				width: 100px;
+				height: 100px;
+				float: left;
+				margin: 10px;
+			}
+			
+			.target{
+				height: 300px;
+				width: 90%;
+				position: fixed;
+				bottom: 10px;
+				margin-left: 5%;
+				border: dashed 4px black;
+				border-radius: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="item" draggable="true" style="background-color: red;"></div>
+		<div class="item" draggable="true" style="background-color: green;"></div>
+		<div class="item" draggable="true"style="background-color: yellow;"></div>
+		<div class="item" draggable="true" style="background-color: blue;"></div>
+		<div class="item" draggable="true" style="background-color: chartreuse;"></div>
+		<div class="target"></div>
+		
+		<script type="text/javascript">
+			var item = document.getElementsByClassName("item");
+			var target = document.getElementsByClassName("target")[0];
+			var tmp = null;
+			
+			//开始
+			for(var i =0 ;i<item.length;i++){
+				item[i].ondragstart = function(e){
+					e.dataTransfer.setData("text","Hello!");
+					console.log("开始");
+					tmp = this;
+					e.dataTransfer.effectAllowed = "all";
+					e.dataTransfer.dropEffect = "move"
+					console.log(e.dataTransfer.getData("text"));
+				}
+			}
+			
+			// 结束
+			for(var i =0 ;i<item.length;i++){
+				item[i].ondragend = function(){
+					console.log("结束");
+				}
+			}
+			
+			//进入
+			target.ondragenter = function(e){
+				console.log("进入");
+				this.style.borderColor ="red";
+				console.log(e.dataTransfer.getData("text"));
+			}
+			
+			// 悬停
+			target.ondragover = function(e){
+				e.preventDefault();
+//				console.log("悬停");
+			}
+			
+			// 离开
+			target.ondragleave = function(){
+				console.log("离开");
+				this.style.borderColor ="black";
+			}
+			// 释放
+			target.ondrop = function(e){
+				e.preventDefault();
+				console.log("释放");
+				this.style.borderColor ="black";
+				if(tmp!=null){
+					tmp.setAttribute("draggable","false");
+					this.appendChild(tmp);
+				}
+				
+				console.log(e.dataTransfer.getData("text"));
+				console.log(e.dataTransfer.types);
+				console.log(e.dataTransfer.files);
+			}
+			
+		</script>
+	</body>
+</html>
