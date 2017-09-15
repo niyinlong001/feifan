@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 400;
+			canvas.height = 400;
+			var ctx = canvas.getContext("2d");
+			
+			ctx.moveTo(50,50);
+			ctx.lineTo(350,50);
+			ctx.lineTo(350,350);
+			ctx.lineTo(50,350);
+			ctx.lineTo(50,50);
+			
+			// 划线
+			ctx.strokeStyle  ="red";
+			ctx.lineWidth = 10;
+			ctx.stroke();
+//			ctx.beginPath();
+			
+			// 填充
+			ctx.fillStyle = "green";
+			ctx.fill();
+			
+			// 一个矩形的路径
+			// 参数： x坐标  ， y坐标 ，宽度，高度
+			ctx.rect(100,100,200,200);
+//			ctx.strokeStyle  ="yellow";
+//			ctx.lineWidth = 5;
+			ctx.stroke();
+			
+			ctx.strokeStyle  ="blue";
+			// rect() + stroke();
+			ctx.strokeRect(150,150,100,100);
+			
+			// rect() +fill();
+			ctx.fillStyle = "#FF0000";
+			ctx.fillRect(175,175,50,50);
+			
+			
+			// 擦除 矩形。
+			ctx.clearRect(200,200,200,200);
+			
+		</script>
+	</body>
+</html>
