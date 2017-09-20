@@ -28,10 +28,24 @@
 						{p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"#fa8ccc"},
 						{p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"#f6ca29"}];
 			
-			// 开始路径
-			context.beginPath();
-			// 结束路径
-			context.closePath();
+			
+			
+			
+			for(var i=0;i<tangram.length;i++){
+				
+				// 开始路径
+				context.beginPath();
+				for(var j=0 ;j<tangram[i].p.length;j++){
+					context.lineTo(tangram[i].p[j].x,tangram[i].p[j].y);
+				}
+				context.fillStyle = tangram[i].color;
+				context.fill();
+				// 结束路径
+				context.closePath();
+				
+			}
+			
+			
 			
 		</script>
 	</body>

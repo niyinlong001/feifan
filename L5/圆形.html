@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+			
+			/***
+			 *  圆心X坐标 ， 圆心Y坐标，圆的半径，开始角度，结束角度,方向（false:顺时针,true:逆时针）
+			 *  
+			 * **/
+			context.arc(400,400,400,0,Math.PI*2,true);
+			context.lineTo(400,400);
+//			context.stroke();
+			context.fill();
+			
+			// 从里往外变大的圆
+			var r = 0;
+			context.fillStyle = "red";
+			var t = setInterval(function(){
+				context.beginPath();
+				context.arc(400,400,r,0,Math.PI*2,true);
+				context.fill();
+				r++;
+				if(r>=400){
+					clearInterval(t);
+					 bing(75);
+				}
+			},10);
+			
+			
+			/**饼形图**/
+			function bing(a){
+				var tmp = 0;
+				context.fillStyle = "green";
+				var t = setInterval(function(){
+					context.beginPath();
+					context.arc(400,400,400,0,Math.PI*2*tmp/100,false);
+					context.lineTo(400,400);
+					context.fill();
+					tmp++;
+					if(tmp>=a){
+						clearInterval(t);
+					}
+				},10);	
+			}
+		</script>
+	</body>
+</html>

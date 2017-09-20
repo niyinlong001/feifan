@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+			context.strokeStyle = "red";
+			context.lineWidth = 20;
+			
+			/***
+			 * 
+			 *  横向缩放  横向倾斜   纵向倾斜  纵向缩放  横向平移  纵向的平移
+			 *   
+			 *  效果会叠加 
+			 * 
+			 * **/
+//			context.transform(0.5,Math.PI/180*0,Math.PI/180*0,1,0,0);
+			
+			/**
+			 * 在做转换前会把前面的效果恢复到原始状态
+			 * **/
+			
+			context.setTransform(0.5,Math.PI/180*0,Math.PI/180*0,1,0,0);
+			context.setTransform(0.5,Math.PI/180*0,Math.PI/180*0,1,0,0);
+			context.setTransform(0.5,Math.PI/180*0,Math.PI/180*0,1,0,0);
+			context.setTransform(1,Math.PI/180*0,Math.PI/180*0,1,0,0);
+			context.strokeRect(200,200,400,400);
+			
+			
+		</script>
+	</body>
+</html>

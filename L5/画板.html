@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas {
+				width: 800px;
+				height: 600px;
+				border: solid 1px black;
+			}
+			.box{
+				width: 800px;
+				height: 650px;
+				margin: 0px auto;
+				position: relative;
+			}
+			.eraser{
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			
+			<canvas id="canvas" width="800" height="800"></canvas>
+			<div class="eraser"></div>
+			<div class="tool">
+				1 <input type="range" id="width" min="1" max="20" value="1" />20
+				<input type="color" name="color" id="color" value="" />
+	
+				<input type="radio" name="pen" class="pen" value="0" checked="checked" />笔
+				<input type="radio" name="pen" class="pen" value="1" />橡皮
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 600;
+			var context = canvas.getContext("2d");
+			var widthInput = document.getElementById("width");
+			var colorInput = document.getElementById("color");
+			var penInput = document.getElementsByClassName("pen");
+			var earserBox = document.getElementsByClassName("eraser")[0];
+			var draw = false;
+			var earser = false;
+			canvas.onmousedown = function(e) {
+				draw = true;
+				context.beginPath();
+			}
+			canvas.onmouseup = function(e) {
+				draw = false;
+				context.closePath();
+				
+			}
+			
+			earserBox.onmousedown = function(){
+				draw = true;
+				context.beginPath();
+			}
+			earserBox.onmouseup = function(){
+				draw = false;
+				context.closePath();
+			}
+			
+			canvas.onmousemove = function(e) {
+				
+				if(draw) {
+					var x = e.pageX - this.offsetLeft;
+					var y = e.pageY - this.offsetTop;
+					context.lineTo(x, y);
+					context.stroke();
+				}
+				if(earser){
+					var x = e.pageX - this.offsetLeft;
+					var y = e.pageY - this.offsetTop;
+					earserBox.style.left = x-10+"px";
+					earserBox.style.top = y-10+"px";
+				}
+			}
+
+			widthInput.onchange = function() {
+				context.lineWidth = this.value;
+			}
+			colorInput.onchange = function() {
+				context.strokeStyle = this.value;
+			}
+			for(var i = 0; i < penInput.length; i++) {
+				penInput[i].onchange = function() {
+					console.log(this.value);
+					if(this.value == 0) {
+						earser = false;
+						earserBox.style.display = "none";
+						context.lineWidth = widthInput.value;
+						context.strokeStyle = colorInput.value;
+					} else {
+						earser = true;
+						context.lineWidth = 20;
+						context.strokeStyle = "white";
+						earserBox.style.display = "block";
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

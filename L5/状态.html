@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+			
+			context.translate(400,400);
+			context.lineWidth = 20;
+			
+			
+			// 第一个正方形
+			context.strokeStyle = "red";
+			
+			context.save();
+				context.rotate(Math.PI/8);
+				context.scale(0.5,0.5);
+				context.strokeRect(-200,-200,400,400);
+			context.restore();
+			context.strokeStyle = "green";
+			context.rotate(-Math.PI/8);
+			context.strokeRect(-200,-200,400,400);
+			
+		</script>
+	</body>
+</html>

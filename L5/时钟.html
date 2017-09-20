@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas {
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+
+			// 原点移动到canvas中间位置
+			context.translate(400, 400);
+			drawClock();
+
+			setInterval(function() {
+				context.clearRect(-400,-400,800,800);
+				drawClock();
+				
+			}, 1000);
+			
+			function drawClock() {
+				// 外圈圆
+				context.beginPath();
+				context.strokeStyle = "#000000";
+				context.lineWidth = 10;
+				context.arc(0, 0, 390, 0, Math.PI * 2);
+				context.stroke();
+				context.closePath();
+				// 绘制刻度
+				for(var i = 0; i < 60; i++) {
+					context.beginPath();
+					if(i % 5 == 0) {
+						r = 10;
+					} else {
+						r = 5;
+					}
+					context.arc(Math.cos(Math.PI / 30 * i) * 370, Math.sin(Math.PI / 30 * i) * 370, r, 0, Math.PI * 2);
+					context.fillStyle = "black";
+					context.fill();
+					context.closePath();
+				}
+
+				// 指针
+				s = new Date().getSeconds();
+				m = new Date().getMinutes();
+				h = new Date().getHours();
+				
+				context.lineCap = "round";
+				context.beginPath();
+				context.save();
+				context.rotate(Math.PI / 180 * (m * 6 + 6 / 60 * s));
+				context.strokeStyle = "black";
+				context.lineWidth = 20;
+				context.lineTo(0, 70);
+				context.lineTo(0, -260);
+				context.stroke();
+				context.restore();
+
+				context.beginPath();
+				context.save();
+				context.rotate(Math.PI / 180 * (30 * h + 30 / 60 * m));
+				context.strokeStyle = "black";
+				context.lineWidth = 30;
+				context.lineTo(0, 50);
+				context.lineTo(0, -200);
+				context.stroke();
+				context.restore();
+				context.closePath();
+				
+				context.beginPath();
+				context.save();
+				context.rotate(Math.PI / 180 * s * 6);
+				context.strokeStyle = "red";
+				context.lineWidth = 5;
+				context.lineTo(0, 90);
+				context.lineTo(0, -320);
+				context.stroke();
+				context.restore();
+				context.closePath();
+				
+				// 
+				context.beginPath();
+				context.arc(0, 0, 30, 0, Math.PI * 2);
+				context.fillStyle = "blue";
+				context.fill();
+				context.closePath();
+			}
+
+			
+		</script>
+	</body>
+
+</html>

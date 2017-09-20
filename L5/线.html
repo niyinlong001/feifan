@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+			context.strokeStyle = "green";
+			context.lineWidth = 1;
+			context.lineTo(200,0);
+			context.lineTo(200,800);
+			context.stroke();
+			
+			context.beginPath();
+			context.lineTo(600,0);
+			context.lineTo(600,800);
+			context.stroke();
+			
+			// 线帽 
+			context.lineWidth = 40;
+			context.strokeStyle = "red";
+			context.lineCap = "butt"; // 默认  ：没有
+			context.beginPath();
+			context.lineTo(200,200);
+			context.lineTo(600,200);
+			context.stroke();
+			
+			context.beginPath();
+			context.lineCap = "round";// 圆形
+			context.lineTo(200,400);
+			context.lineTo(600,400);
+			context.stroke();
+			
+			context.beginPath();
+			context.lineCap = "square";//方形
+			context.lineTo(200,600);
+			context.lineTo(600,600);
+			context.stroke();
+			
+			context.beginPath();
+			context.strokeStyle = "green";
+			context.lineJoin = "miter"; // round 圆形  bevel：平角  miter：尖角
+			context.miterLimit = 1;
+			context.lineTo(800,300);
+			context.lineTo(200,400);
+			context.lineTo(800,500);
+			context.stroke();
+			
+			
+		</script>
+	</body>
+</html>

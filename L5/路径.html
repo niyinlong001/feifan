@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+			
+			context.lineTo(0,400);
+			context.lineTo(800,400);
+			context.strokeStyle ="red";
+			context.lineWidth = 20;
+			context.stroke();
+			
+			
+			context.beginPath();//开始路径 。重新开始一个起始点，不会和上一个路径有粘连
+			context.lineTo(100,100);
+			context.lineTo(700,100);
+			context.lineTo(700,700);
+			context.lineTo(100,700);
+//			context.lineTo(100,100);
+			
+			context.closePath(); // 会把没有闭合的路径自动补全
+			context.stroke();
+			
+			context.beginPath();// 只要有开始路径，都是重新开始
+			context.lineTo(200,200);
+			context.lineTo(600,200);
+			context.lineTo(600,600);
+			context.lineTo(200,600);
+			
+			context.closePath();
+			context.stroke();
+			
+//			context.strokeRect(100,100,600,600);
+			
+		</script>
+	</body>
+</html>
