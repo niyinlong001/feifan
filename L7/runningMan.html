@@ -1,76 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" href="css/running.css" />
 		<link rel="stylesheet" href="css/action.css" />
-		<style type="text/css">
-			.body{
-				width: 86px;
-				height: 274px;
-				background-color: red;
-				position: relative;
-				margin: 50px auto;
-				-webkit-animation: body-action 2s linear infinite;
-			}
-			.body div{
-				position: absolute;
-			}
-			.right-bicep{
-				width:51px;
-				height: 124px;
-				left: 6px;
-				top:87px;
-				-webkit-transform-origin: 27px 32px;
-				-webkit-animation: right-bicep-action 2s linear infinite;
-			}
-			
-			.right-forearm{
-				width: 36px;
-				height: 121px;
-				-webkit-transform-origin: 15px 12px;
-				top:99px;
-				left: 14px;
-				-webkit-animation: right-forearm-action 2s linear infinite;
-			}
-			
-			.left-bicep{
-				width:51px;
-				height: 124px;
-				left: 6px;
-				top:87px;
-				z-index: -1;
-				-webkit-transform-origin: 27px 32px;
-				-webkit-animation: left-bicep-action 2s linear infinite;
-			}
-			
-			.left-forearm{
-				width: 36px;
-				height: 121px;
-				-webkit-transform-origin: 15px 12px;
-				top:99px;
-				left: 14px;
-				-webkit-animation: left-forearm-action 2s linear infinite;
-			}
-			
-		</style>
 	</head>
+
 	<body>
-		
-		<div class="body">
-			<div class="left-bicep">
+
+		<div class="people">
+			<div class="arm-left">
 				<img src="img/left-bicep.png">
-				<div class="left-forearm">
-					<img src="img/left-forearm.png" />
+				<div class="forearm-left">
+					<img src="img/left-forearm.png">
 				</div>
 			</div>
 			<img src="img/torso.png">
-			<div class="right-bicep">
+			<div class="arm-right">
 				<img src="img/right-bicep.png">
-				<div class="right-forearm">
-					<img src="img/right-forearm.png" />
+				<div class="forearm-right">
+					<img src="img/right-forearm.png">
 				</div>
 			</div>
+
+			<div class="leg-left">
+				<img src="img/left-thigh.png">
+				<div class="shin-left">
+					<img src="img/shin.png">
+					<div class="foot-left">
+						<img src="img/foot.png">
+						<div class="toes-left"><img src="img/toes.png"></div>
+					</div>
+				</div>
+			</div>
+			<div class="leg-right">
+				<img src="img/right-thigh.png">
+				<div class="shin-right">
+					<img src="img/shin.png">
+					<div class="foot-right">
+						<img src="img/foot.png">
+						<div class="toes-right"><img src="img/toes.png"></div>
+					</div>
+				</div>
+			</div>
+			<img class="shadow" src="img/shadow.png">
 		</div>
 	</body>
+
 </html>

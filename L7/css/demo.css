@@ -1,0 +1,27 @@
+/**
+ * 
+ *	手 ：右手臂（26 ~ -20  ~ 26 )  11 ，  右小手臂（-10 ~ -45  ~ -10） 12
+ *	     ：左手臂（-20 ~ 26  ~ -20 ) 4 ，左小手臂（-45 ~ -10  ~ -45）5
+ * 
+ * 躯干  10
+ * 
+ *  腿	：左大腿（10 ~ -45 ~ 10 ）7    左小腿( 20 85 30 20 20 ) 6  左脚：（ -16 ~ -10 ~ -5 ~ -7 ~ -16）7  左脚尖： （ -10 -25 0 -10 -10）6
+ *  	：右大腿（-45 ~ 10 ~ -45 ）9   右小腿( 30 20 20 85 30 ) 8  右脚：（ -5 ~ -7 ~ -16 ~ -10 ~ -5）9  右脚尖： （0 -10 -10 -25 0）8
+ * 
+ * 躯干部分：
+ * { -webkit-transform:   rotate(5deg) translate( 5px,   0px); }
+ * { -webkit-transform:  rotate(5deg) translate(-5px, -14px); }
+ * { -webkit-transform:  rotate(5deg) translate( 5px,   0px); }
+ * { -webkit-transform:  rotate(5deg) translate(-5px, -14px); }
+ * { -webkit-transform: rotate(5deg) translate( 5px,   0px); }
+
+
+
+ @-webkit-keyframes shadow{
+    0%   { opacity: 1; }
+    25%  { opacity: 0.75; }
+    50%  { opacity: 1; }
+    75%  { opacity: 0.75; }
+    100% { opacity: 1; }
+}
+***/
