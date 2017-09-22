@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				margin: 50px auto;
+				-webkit-transform: rotate(0deg);
+				/* 样式  动画时长   延时    动画效果 */
+				-webkit-transition:all 1s 0s linear; 
+				-webkit-transition-delay:5s; /*延时**/
+				-webkit-transition-duration:20s;/*动画时长**/
+				-webkit-transition-property:all;/*样式*/
+				-webkit-transition-timing-function: ease-out;/*动画效果*/
+			}
+			
+			.box:hover{
+				background-color: green;
+				-webkit-transform: rotate(360deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

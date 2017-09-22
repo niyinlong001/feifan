@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.menu{
+				height: 135px;
+				width: 900px;
+				border: solid 1px red;
+				position: relative;
+				margin: 50px auto;
+			}
+			.menu ul{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.menu ul li{
+				height: inherit;
+				width: 150px;
+				height: 135px;
+				float: left;
+			}
+			.item-1{
+				background-image: url(img/burger-large.png);
+				background-position: center;
+			}
+			.item-2{
+				background-image: url(img/comment-large.png);
+				background-position: center;
+			}
+			.item-3{
+				background-image: url(img/earth-large.png);
+				background-position: center;
+			}
+			.item-4{
+				background-image: url(img/rocket-large.png);
+				background-position: center;
+			}
+			.item-5{
+				background-image: url(img/sport-large.png);
+				background-position: center;
+			}
+			.item-6{
+				background-image: url(img/wine-large.png);
+				background-position: center;
+			}
+			
+			.box{
+				width:100px;
+				height: 165px;
+				background-color: red;
+				position: absolute;
+				border-radius: 10px;
+				z-index: -1;
+				top: -15px;
+				left:25px;
+				
+				-webkit-transition: left 0.3s 0s linear;
+			}
+			
+			.menu li.item-1:hover~.box{
+				left: 25px;
+			}
+			
+			.menu li.item-2:hover~.box{
+				left: 175px;
+			}
+			.menu li.item-3:hover~.box{
+				left: 325px;
+			}
+			
+			.menu li.item-4:hover~.box{
+				left: 475px;
+			}
+			
+			.menu li.item-5:hover~.box{
+				left: 625px;
+			}
+			
+			.menu li.item-6:hover~.box{
+				left: 775px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="menu">
+			<ul>
+				<li class="item-1"></li>
+				<li class="item-2"></li>
+				<li class="item-3"></li>
+				<li class="item-4"></li>
+				<li class="item-5"></li>
+				<li class="item-6"></li>
+				
+				<div class="box"></div>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/action.css" />
+		<style type="text/css">
+			.body{
+				width: 86px;
+				height: 274px;
+				background-color: red;
+				position: relative;
+				margin: 50px auto;
+				-webkit-animation: body-action 2s linear infinite;
+			}
+			.body div{
+				position: absolute;
+			}
+			.right-bicep{
+				width:51px;
+				height: 124px;
+				left: 6px;
+				top:87px;
+				-webkit-transform-origin: 27px 32px;
+				-webkit-animation: right-bicep-action 2s linear infinite;
+			}
+			
+			.right-forearm{
+				width: 36px;
+				height: 121px;
+				-webkit-transform-origin: 15px 12px;
+				top:99px;
+				left: 14px;
+				-webkit-animation: right-forearm-action 2s linear infinite;
+			}
+			
+			.left-bicep{
+				width:51px;
+				height: 124px;
+				left: 6px;
+				top:87px;
+				z-index: -1;
+				-webkit-transform-origin: 27px 32px;
+				-webkit-animation: left-bicep-action 2s linear infinite;
+			}
+			
+			.left-forearm{
+				width: 36px;
+				height: 121px;
+				-webkit-transform-origin: 15px 12px;
+				top:99px;
+				left: 14px;
+				-webkit-animation: left-forearm-action 2s linear infinite;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="body">
+			<div class="left-bicep">
+				<img src="img/left-bicep.png">
+				<div class="left-forearm">
+					<img src="img/left-forearm.png" />
+				</div>
+			</div>
+			<img src="img/torso.png">
+			<div class="right-bicep">
+				<img src="img/right-bicep.png">
+				<div class="right-forearm">
+					<img src="img/right-forearm.png" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

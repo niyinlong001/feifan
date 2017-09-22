@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			
+			.box{
+				width: 300px;
+				height: 300px;
+				padding: 50px;
+				border: dotted 50px  black;
+				background-image: url(img/Chrysanthemum.jpg);
+				background-size: 200px 200px;
+				background-repeat: no-repeat;
+				/**
+				 * 背景图起始位置
+				 * content-box：内容区起始
+				 * padding-box:
+				 * border-box: 
+				 * 
+				 * **/
+				background-origin: border-box;
+				
+				/**背景图裁切
+				 * 
+				 * content-box
+				 * padding-box
+				 * 
+				 * ***/
+				background-clip: border-box;
+				
+				
+			}
+			
+			.box-2{
+				width: 200px;
+				height: 200px;
+				margin: 20px auto;
+				background-image: url(img/Hydrangeas.jpg);
+				
+				/*
+				 * auto
+				 * contain: 至少显示一张完整图，等比例缩放
+				 * cover:顶多只显示一张完整图。
+				 * 
+				 * 
+				 * */
+				background-size:cover;
+			}
+			
+			.box-3{
+				width: 600px;
+				height: 600px;
+				background:url(img/Chrysanthemum.jpg) top left /300px 300px no-repeat,url(img/Hydrangeas.jpg) top right /300px 300px no-repeat,url(img/Hydrangeas.jpg) bottom left /300px 300px no-repeat,url(img/Chrysanthemum.jpg) bottom right /300px 300px no-repeat;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box-3">
+			
+		</div>
+		
+		<div class="box-2">
+			
+		</div>
+		
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

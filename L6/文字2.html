@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			@font-face {
+				font-family:"wawa";
+				src: url("css/简娃娃篆.ttf");
+			}
+			@font-face {
+				font-family:"xuefeng";
+				src: url("css/简雪峰.ttf");
+			}
+			p{
+				width: 300px;
+				border: solid red 1px;
+				font-size: 50px;
+				font-family: "wawa";
+				text-shadow: 5px 5px 0px red;
+				
+				/**文本不换行**/
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.p-2{
+				font-family: "xuefeng";
+			}
+			
+			#hello{
+				width: 200px;
+				height: 200px;
+				border:solid 1px  red;
+				word-wrap:break-word;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="hello">
+			Helloooooooooooooooooooooooooooo Wooooooooorld Hello Woroooooooooooooooold Hellooooo World 
+		</div>
+		
+		<p>文字内容文字内容文字内容</p>
+		<p class="p-2">文字内容</p>
+		
+	</body>
+</html>

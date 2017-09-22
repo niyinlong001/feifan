@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 200px;
+				margin: 40px auto;
+				-webkit-perspective: 1000px;
+			}
+			.cube{
+				width: 200px;
+				height: 200px;
+				position: relative;
+				-webkit-transform-style: preserve-3d;
+		        -webkit-transform: rotateY(0deg) ;
+		        -webkit-animation:name 20s 0s linear infinite;
+		        
+		        -webkit-animation-delay: 0s;
+		        -webkit-animation-direction: normal;
+		        -webkit-animation-duration: 10s;
+		        -webkit-animation-name: name;
+		        -webkit-animation-play-state: running;
+		        -webkit-animation-timing-function: ease-in-out;
+		        -webkit-animation-iteration-count: infinite;
+			}
+			
+			
+			@-webkit-keyframes name{
+				0%{
+					 -webkit-transform: rotateY(0deg);
+				}
+				
+				25%{
+					-webkit-transform: rotateY(360deg);
+				}
+				50%{
+					-webkit-transform:rotateY(360deg) rotateX(0deg);
+				}
+				
+				100%{
+					 -webkit-transform: rotateY(360deg) rotateX(360deg);
+				}
+			}
+			
+			.cube .item{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 200px;
+				height: 200px;
+				font-size: 100px;
+				text-align: center;
+				line-height: 200px;
+				color: white;
+			}
+			
+			.cube .item-1{
+				background-color: rgba(100,0,0,0.5);
+				-webkit-transform: translateZ(-100px);
+			}
+			
+			.cube .item-2{
+				background-color: rgba(255,0,0,0.5);
+				-webkit-transform:translateX(-100px) rotateY(90deg) ;
+			}
+			.cube .item-3{
+				background-color: yrgba(0,0,100,0.5);;
+				-webkit-transform: translateX(100px) rotateY(90deg);
+			}
+			.cube .item-4{
+				background-color: rgba(0,0,255,0.5);;
+				-webkit-transform: translateY(-100px) rotateX(90deg);
+			}
+			.cube .item-5{
+				background-color: rgba(255,255,0,0.5);;
+				-webkit-transform: translateY(100px) rotateX(90deg);
+			}
+			.cube .item-6{
+				background-color: rgba(0,0,200,0.5);;
+				opacity: 0.5;
+				-webkit-transform: translateZ(100px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="cube">
+				<div class="item item-1">1</div>
+				<div class="item item-2">2</div>
+				<div class="item item-3">3</div>
+				<div class="item item-4">4</div>
+				<div class="item item-5">5</div>
+				<div class="item item-6">6</div>
+			</div>
+		</div>
+		
+		<input type="range" id="rang" value="0" min="0" max="360" /><br/>
+		<input type="range" id="rangX" value="0" min="0" max="360" /><br/>
+		<input type="range" id="rangY" value="0" min="0" max="360" /><br/>
+		<input type="range" id="rangZ" value="0" min="0" max="360" /><br/>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+			
+			
+			$("#rang").on("input propetrychange",function(){
+				var r = $(this).val();
+				$(".cube").css("-webkit-transform","rotateY("+r+"deg) rotateX("+r+"deg) rotateZ("+r+"deg)")
+			});
+			
+			$("#rangX").on("input propetrychange",function(){
+				var r = $(this).val();
+				$(".cube").css("-webkit-transform","rotateY("+0+"deg) rotateX("+r+"deg) rotateZ("+0+"deg)")
+			});
+			
+			$("#rangY").on("input propetrychange",function(){
+				var r = $(this).val();
+				$(".cube").css("-webkit-transform","rotateY("+r+"deg) rotateX("+0+"deg) rotateZ("+0+"deg)")
+			});
+			$("#rangZ").on("input propetrychange",function(){
+				var r = $(this).val();
+				$(".cube").css("-webkit-transform","rotateY("+0+"deg) rotateX("+0+"deg) rotateZ("+r+"deg)")
+			});
+			
+		</script>
+	</body>
+</html>
