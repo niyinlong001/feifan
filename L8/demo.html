@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html{
+				font-size: calc(100vw/7.5);
+			}
+			body{
+				margin: 0;
+			}
+			.box{
+				width: 7.5rem;
+				height: 7.5rem;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		
+		<script type="text/javascript">
+			var box = $(".box");
+			var startX = 0;
+			var startY = 0;
+			// mousedown
+			box.on("touchstart",function(e){
+				startX = e.originalEvent.changedTouches[0].pageX-this.offsetLeft;
+				startY = e.originalEvent.changedTouches[0].pageY-this.offsetTop;
+			});
+			
+			// mouseup
+			box.on("touchend",function(){
+				
+			});
+			
+			// mousemove
+			box.on("touchmove",function(e){
+				var x = e.originalEvent.changedTouches[0].pageX-this.offsetLeft;
+				var y = e.originalEvent.changedTouches[0].pageY-this.offsetTop;
+				
+				if(x>startX){
+					console.log("右");
+				}else{
+					console.log("左");
+				}
+				
+				if(y>startY){
+					console.log("下");
+				}else{
+					console.log("上");
+				}
+				
+				startX = x;
+				startY = y;
+			});
+			
+			// 做一个滑动方向的判断一个函数。
+			
+//			box.on("mousedown",function(){
+//				console.log("鼠标按下");
+//			});
+//			box.on("mouseup",function(){
+//				console.log("鼠标松开");
+//			});
+//			box.on("mousemove",function(){
+//				//console.log("鼠标移动")
+//			});
+//			box.on("mouseenter",function(){
+//				console.log("enter")
+//			});
+//			box.on("mouseleave",function(){
+//				console.log("leave")
+//			});
+//			box.on("mouseout",function(){
+//				console.log("out")
+//			});
+//			box.on("mouseover",function(){
+//				console.log("over")
+//			});
+			
+			
+		</script>
+		
+	</body>
+</html>

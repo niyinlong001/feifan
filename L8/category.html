@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			html {
+				font-size: calc(100vw/6.4);
+			}
+			
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.top {
+				width: 100%;
+				height: 0.9rem;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 999;
+				background-color: #efefef;
+				background-image: linear-gradient(to top, #efefef, #ffffff);
+			}
+			
+			.content {
+				padding-top: 0.9rem;
+				height: 100vh;
+				box-sizing: border-box;
+				background-color: #f3f5f7;
+				overflow: hidden;
+			}
+			
+			.category {
+				height: inherit;
+				width: 1.5rem;
+				font-size: 0.2rem;
+				line-height: 0.9rem;
+				text-align: center;
+				position: relative;
+			}
+			
+			.category ul {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				list-style: none;
+				background-color: white;
+				border-right: solid 1px #e5e5e5;
+				position: absolute;
+				top: 0px;
+				left: 0;
+			}
+			
+			.category ul li {
+				border-bottom: solid 1px #e5e5e5;
+			}
+			
+			.category a {
+				color: #232323;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="top">
+
+		</div>
+
+		<div class="content">
+			<div class="category">
+				<ul>
+					<li>
+						<a href="#">热门推荐</a>
+					</li>
+					<li>
+						<a href="#">京东超市</a>
+					</li>
+					<li>
+						<a href="#">手机</a>
+					</li>
+					<li>
+						<a href="#">平板</a>
+					</li>
+					<li>
+						<a href="#">电脑</a>
+					</li>
+					<li>
+						<a href="#">服装</a>
+					</li>
+					<li>
+						<a href="#">食品</a>
+					</li>
+					<li>
+						<a href="#">热门推荐</a>
+					</li>
+					<li>
+						<a href="#">京东超市</a>
+					</li>
+					<li>
+						<a href="#">手机</a>
+					</li>
+					<li>
+						<a href="#">平板</a>
+					</li>
+					<li>
+						<a href="#">电脑</a>
+					</li>
+					<li>
+						<a href="#">服装</a>
+					</li>
+					<li>
+						<a href="#">食品</a>
+					</li>
+					<li>
+						<a href="#">热门推荐</a>
+					</li>
+					<li>
+						<a href="#">京东超市</a>
+					</li>
+					<li>
+						<a href="#">手机</a>
+					</li>
+					<li>
+						<a href="#">平板</a>
+					</li>
+					<li>
+						<a href="#">电脑</a>
+					</li>
+					<li>
+						<a href="#">服装</a>
+					</li>
+					<li>
+						<a href="#">食品</a>
+					</li>
+					<li>
+						<a href="#">热门推荐</a>
+					</li>
+					<li>
+						<a href="#">京东超市</a>
+					</li>
+					<li>
+						<a href="#">手机</a>
+					</li>
+					<li>
+						<a href="#">平板</a>
+					</li>
+					<li>
+						<a href="#">电脑</a>
+					</li>
+					<li>
+						<a href="#">服装</a>
+					</li>
+					<li>
+						<a href="#">食品</a>
+					</li>
+					<li>
+						<a href="#">热门推荐</a>
+					</li>
+					<li>
+						<a href="#">京东超市</a>
+					</li>
+					<li>
+						<a href="#">手机</a>
+					</li>
+					<li>
+						<a href="#">平板</a>
+					</li>
+					<li>
+						<a href="#">电脑</a>
+					</li>
+					<li>
+						<a href="#">服装</a>
+					</li>
+					<li>
+						<a href="#">食品</a>
+					</li>
+				</ul>
+			</div>
+			<div class="list">
+
+			</div>
+
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			
+			var offsetTop = 0;
+			
+			$(".category").on({
+				startY: 0,
+				touchstart: function(e) {
+					this.startY = e.originalEvent.changedTouches[0].pageY;
+				},
+				touchend: function(e) {
+					var y = e.originalEvent.changedTouches[0].pageY;
+					offsetTop = offsetTop + y-this.startY;
+					
+					if(offsetTop>0){
+						offsetTop = 0;
+						$(".category ul").animate({top:"0px"},300);
+					}
+					
+					if($(".category").height()-$(".top").height()-$(".category ul").height()>offsetTop){
+						offsetTop = $(".category").height()-$(".top").height()-$(".category ul").height();
+						$(".category ul").animate({top:offsetTop+"px"},300);
+					}
+				},
+				touchmove: function(e) {
+					var y = e.originalEvent.changedTouches[0].pageY;
+					var offset = offsetTop +  y-this.startY;
+					var  h = $(".category").height()-($(".category ul").height()+offset);
+					
+					if( $(".category").height()-$(".top").height()-$(".category ul").height()-150>offset){
+						offset = $(".category").height()-$(".top").height()-$(".category ul").height()-150;
+					}
+					
+					offset = offset>150?150:offset;
+					
+					$(".category ul").css("top",offset+"px");
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

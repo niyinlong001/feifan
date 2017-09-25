@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.game{
+				width:420px;
+				height: 300px;
+				position: relative;
+			}
+			.bg-1{
+				width: 420px;
+				height: 160px;
+				background-image: url(img/bg-1.jpg);
+				background-size: 840px 160px;
+				-webkit-animation: bg-run 8s linear infinite;
+			}
+			
+			.bg-2{
+				height: 140px;
+				width: 420px;
+				background-image: url(img/bg-2.jpg);
+				background-size: 840px 160px;
+				-webkit-animation: bg-run 1s linear infinite;
+			}
+			.person{
+				width: 123px;
+				height: 105px;
+				position: absolute;
+				top:100px;
+				left: 50%;
+				margin-left: -60px;
+				-webkit-animation: person 0.8s linear infinite;
+			}
+			
+			@-webkit-keyframes bg-run{
+				0%{
+					background-position-x: 0%;
+				}
+				100%{
+					background-position-x: 200%;
+				}
+			}
+			
+			@-webkit-keyframes person{
+				0%{
+					background-image: url(img/1.png);
+				}
+				12.5%{
+					background-image: url(img/2.png);
+				}
+				25%{
+					background-image: url(img/3.png);
+				}
+				37.5%{
+					background-image: url(img/4.png);
+				}
+				50%{
+					background-image: url(img/5.png);
+				}
+				62.5%{
+					background-image: url(img/6.png);
+				}
+				75%{
+					background-image: url(img/7.png);
+				}
+				87.5%{
+					background-image: url(img/8.png);
+				}
+				100%{
+					background-image: url(img/1.png);
+				}
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="game">
+			<div class="bg-1"></div>
+			<div class="bg-2"></div>
+			
+			<div class="person">
+				
+			</div>
+		</div>
+	</body>
+</html>
